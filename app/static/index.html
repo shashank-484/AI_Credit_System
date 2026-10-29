@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f7f5" />
+  <title>Responsible Credit AI</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#18332e;background:#f4f7f5;font-synthesis:none;text-rendering:optimizeLegibility;--green:#176b55;--green2:#e7f3ee;--ink:#18332e;--muted:#5d716a;--line:#dbe6e0;--white:#fff;--amber:#8a5b00;--amber-bg:#fff4d6;--red:#a43c35;--red-bg:#fff0ed;--shadow:0 12px 40px rgba(26,57,45,.07)}
+    *{box-sizing:border-box}body{margin:0;min-width:320px}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--green)}
+    .shell{max-width:1440px;margin:0 auto;padding:22px clamp(14px,3vw,44px) 50px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:42px;height:42px;border-radius:13px;background:#d9eee5;color:var(--green);display:grid;place-items:center;font-weight:850;font-size:19px}.brand strong{display:block;font-size:15px;letter-spacing:.01em}.brand span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.status-pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:8px 12px;background:#fff;color:var(--muted);font-size:12px}.dot{width:8px;height:8px;border-radius:100%;background:#37a879;box-shadow:0 0 0 3px #e4f4ed}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:end;padding:clamp(22px,4vw,42px);background:linear-gradient(120deg,#173e35,#246653);border-radius:24px;color:#fff;box-shadow:var(--shadow)}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:750;color:#b6dfcc}.hero h1{margin:11px 0 12px;font-size:clamp(27px,4vw,43px);line-height:1.08;letter-spacing:-.035em;max-width:780px}.hero p{margin:0;line-height:1.6;color:#d6e9df;max-width:770px;font-size:15px}.hero-tag{border:1px solid #ffffff3c;border-radius:12px;padding:12px 14px;min-width:170px;font-size:12px;color:#e1f0e9}.hero-tag b{display:block;color:white;font-size:14px;margin-bottom:4px}
+    .notice{display:flex;gap:10px;align-items:flex-start;background:var(--amber-bg);border:1px solid #f1dfae;color:#6d4a00;padding:13px 16px;border-radius:13px;margin:18px 0 20px;font-size:13px;line-height:1.5}.notice b{white-space:nowrap}
+    .tabs{display:flex;gap:6px;overflow-x:auto;padding:5px;background:#e9efeb;border-radius:14px;margin:20px 0;scrollbar-width:thin}.tab{border:0;background:transparent;color:#60726b;padding:10px 15px;border-radius:10px;white-space:nowrap;font-weight:650;font-size:13px}.tab[aria-selected="true"]{color:var(--green);background:#fff;box-shadow:0 2px 7px #213d3310}
+    .panel{display:none}.panel.active{display:block}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin:28px 0 15px}.section-head h2{font-size:22px;letter-spacing:-.025em;margin:0}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.grid{display:grid;gap:14px}.metric-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:var(--shadow)}.metric-label{font-size:12px;color:var(--muted);font-weight:620}.metric-value{font-size:28px;letter-spacing:-.04em;font-weight:780;margin:9px 0 3px}.metric-foot{font-size:11px;color:var(--muted);line-height:1.45}.metric-accent{color:var(--green)}
+    .two-col{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);align-items:start}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid #edf1ee;font-size:12px;vertical-align:top}th{color:#62736d;background:#f8faf8;font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}tr:last-child td{border-bottom:0}.subtle{color:var(--muted);font-size:12px;line-height:1.55}.tag{display:inline-flex;align-items:center;padding:4px 8px;border-radius:99px;background:#edf3ef;color:#49645a;font-size:10px;font-weight:700}.tag.good{background:#e6f5ec;color:#247549}.tag.warn{background:#fff2d9;color:#865d07}.tag.bad{background:#ffefec;color:#a33d34}
+    .form-card{padding:clamp(16px,3vw,26px)}.form-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.form-toolbar p{font-size:12px;color:var(--muted);margin:0}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 14px;font-weight:680;font-size:12px}.btn:hover{border-color:#9bbcaf;background:#f8fbf9}.btn.primary{background:var(--green);border-color:var(--green);color:white}.btn.primary:hover{background:#125843}.btn:disabled{opacity:.55;cursor:wait}.field-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.field-group{border:1px solid #e7eeea;border-radius:13px;padding:15px}.field-group h3{font-size:13px;margin:0 0 12px;color:#385a4e}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{min-width:0}.field label{display:block;font-size:11px;color:#455e54;font-weight:700;margin:0 0 6px}.field select,.field input,.review textarea{width:100%;border:1px solid #ccd9d2;border-radius:8px;background:white;color:#19352e;padding:10px 11px;outline:none;font-size:12px}.field select:focus,.field input:focus,.review textarea:focus{border-color:#4f9d7d;box-shadow:0 0 0 3px #d8eee3}.field small{display:block;color:#81918b;font-size:10px;line-height:1.35;margin-top:4px}.form-submit{display:flex;justify-content:flex-end;margin-top:18px}
+    .result-card{margin-top:18px;display:none}.result-card.visible{display:block}.result-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.result-top h3{margin:0 0 5px;font-size:20px}.probability{font-size:26px;font-weight:800;color:var(--green);letter-spacing:-.04em}.meter{height:9px;background:#e6ede9;border-radius:99px;overflow:hidden;margin:14px 0}.meter span{display:block;height:100%;background:linear-gradient(90deg,#62b88d,#177353);border-radius:inherit;width:0;transition:width .35s ease}.explanation-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}.explanation-list li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #edf1ee;padding:8px 0;font-size:12px}.explanation-list li:last-child{border:0}.review{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.review textarea{min-height:80px;resize:vertical;margin:8px 0}.review-actions{display:flex;gap:8px;flex-wrap:wrap}.review-result{font-size:12px;color:var(--green);margin-top:8px;min-height:16px}
+    .empty{padding:32px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #c9d8d0;border-radius:14px}.notice-inline{color:var(--muted);font-size:11px;line-height:1.5;margin-top:12px}.status{font-weight:700}.status.low{color:#247549}.status.moderate{color:#936200}.status.high{color:#a33d34}
+    .method-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.method-card h3{margin:0 0 8px;font-size:15px}.method-card p,.method-card li{font-size:12px;line-height:1.6;color:var(--muted)}.method-card ul{padding-left:18px}.footer{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:11px;line-height:1.5}.error{color:var(--red);font-size:12px}.loading{color:var(--muted);font-size:13px;padding:20px}
+    @media(max-width:950px){.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two-col{grid-template-columns:1fr}.method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-tag{max-width:max-content}}
+    @media(max-width:640px){.shell{padding:12px 12px 32px}.topbar{margin-bottom:14px}.status-pill{font-size:0;padding:9px}.status-pill .dot{width:9px;height:9px}.hero{padding:22px 19px;border-radius:18px}.hero h1{font-size:29px}.hero p{font-size:13px}.notice{font-size:11px;padding:11px 12px;display:block}.notice b{display:block;margin-bottom:3px}.tabs{margin:14px 0;border-radius:11px}.tab{padding:9px 11px;font-size:11px}.metric-grid{gap:9px}.metric-grid .card{padding:14px}.metric-value{font-size:23px}.section-head{margin:22px 0 12px}.section-head h2{font-size:19px}.card{border-radius:13px;padding:15px}.field-groups{grid-template-columns:1fr;gap:12px}.fields{grid-template-columns:1fr 1fr;gap:10px}.form-toolbar{align-items:flex-start;flex-direction:column}.form-submit .btn{width:100%}.result-top{flex-direction:column}.method-grid{grid-template-columns:1fr}.footer{display:block}.footer span{display:block;margin-bottom:5px}.review-actions .btn{flex:1}.table-wrap{border-radius:9px}}
+    @media(max-width:390px){.fields{grid-template-columns:1fr}.brand span{max-width:180px}.hero-tag{min-width:0}.metric-grid{grid-template-columns:1fr 1fr}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark" aria-hidden="true">RC</div><div><strong>Responsible Credit AI</strong><span>3rd semester · explainable risk prototype</span></div></div>
+      <div class="status-pill"><i class="dot"></i><span id="server-status">Connecting to local model…</span></div>
+    </header>
+    <section class="hero">
+      <div><div class="eyebrow">Responsible AI · credit risk</div><h1>Make the prediction. Show the reasoning. Keep the record.</h1><p>A local learning prototype that evaluates German Credit benchmark cases and demonstrates model evaluation, group checks, human review, an audit trail, and input-drift monitoring.</p></div>
+      <div class="hero-tag"><b>Model boundary</b>Predicts the dataset’s good/bad risk label. It does not approve or reject loans.</div>
+    </section>
+    <div class="notice"><b>Classroom prototype only</b><span>The source data is a small historical German credit benchmark. Do not enter real people’s financial or identifying information, and do not use predictions for lending decisions.</span></div>
+    <nav class="tabs" aria-label="Project sections" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-panel="overview">Overview</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="predict">Try a prediction</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="fairness">Fairness</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="audit">Review & audit</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="monitoring">Monitoring</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="method">Method</button>
+    </nav>
+
+    <main>
+      <section class="panel active" id="panel-overview" role="tabpanel">
+        <div class="section-head"><div><h2>Model snapshot</h2><p>Numbers from a stratified held-out test split. Model selection and threshold choice used training data only.</p></div><span class="tag" id="model-version">Loading model…</span></div>
+        <div class="grid metric-grid" id="metric-cards"><div class="card loading">Loading training report…</div></div>
+        <div class="grid two-col" style="margin-top:16px">
+          <div class="card"><div class="section-head" style="margin:0 0 12px"><div><h2 style="font-size:16px">Cross-validation comparison</h2><p>Repeated stratified 5-fold model selection on the training portion.</p></div></div><div id="cv-table" class="loading">Loading candidates…</div></div>
+          <div class="card"><h3 style="margin:0 0 8px;font-size:15px">How to read this page</h3><p class="subtle">The target dataset contains 700 “good” and 300 “bad” labels. Accuracy alone can hide missed bad-risk cases, so the project also reports bad-risk recall, balanced accuracy, and the dataset’s asymmetric error cost.</p><p class="subtle">The final test set is held back from model and threshold selection. Its results are an estimate, not a guarantee; there are only 200 held-out rows.</p><button class="btn primary" data-go="predict">Try an example</button></div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-predict" role="tabpanel">
+        <div class="section-head"><div><h2>Try a prediction</h2><p>Enter a benchmark-style application profile. Category choices use corrected dataset labels.</p></div></div>
+        <div class="card form-card">
+          <div class="form-toolbar"><p>Fields used: <strong id="field-count">…</strong>. A reduced model may use fewer fields; all 20 are accepted for consistent review.</p><button class="btn" id="load-example" type="button">Load typical example</button></div>
+          <p class="notice-inline">This page makes and records predictions; it does not train the model. To train or evaluate a new version, run the project notebook using labelled dataset examples.</p>
+          <form id="prediction-form">
+            <div class="field-groups" id="field-groups"><div class="loading">Loading field schema…</div></div>
+            <div class="form-submit"><button class="btn primary" id="predict-button" type="submit">Estimate credit-risk label</button></div>
+          </form>
+        </div>
+        <section class="card result-card" id="prediction-result" aria-live="polite">
+          <div class="result-top"><div><span class="tag" id="result-tag">Prediction</span><h3 id="result-title" style="margin-top:10px">—</h3><div class="subtle" id="result-subtitle"></div></div><div class="probability" id="result-probability">—</div></div>
+          <div class="meter" aria-label="Estimated bad-risk probability"><span id="probability-meter"></span></div>
+          <div class="subtle">Approximate one-feature what-if sensitivities</div><ul class="explanation-list" id="explanation-list"></ul>
+          <div class="notice-inline" id="explanation-note"></div>
+          <div class="review">
+            <strong style="font-size:13px">Human review</strong><p class="subtle">Record that the result needs review, was upheld, or was revised. Add a short reason; the action is appended to the audit history.</p>
+            <textarea id="review-note" maxlength="1000" minlength="5" placeholder="Why is this being reviewed? (5–1,000 characters)"></textarea>
+            <div class="review-actions"><button type="button" class="btn" data-review="review_requested">Request review</button><button type="button" class="btn" data-review="review_upheld">Uphold result</button><button type="button" class="btn" data-review="review_revised">Record revision</button></div>
+            <div class="review-result" id="review-result" aria-live="polite"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel" id="panel-fairness" role="tabpanel">
+        <div class="section-head"><div><h2>Group-level checks</h2><p>Descriptive error and prediction rates on the held-out test sample, grouped by sensitive or proxy-related fields.</p></div><button class="btn" id="refresh-fairness">Refresh</button></div>
+        <div id="fairness-content" class="loading">Loading held-out group metrics…</div>
+        <p class="notice-inline">Small groups have unstable rates; this panel flags groups with fewer than 20 test cases. A difference is a signal to investigate, not proof of discrimination or compliance.</p>
+      </section>
+
+      <section class="panel" id="panel-audit" role="tabpanel">
+        <div class="section-head"><div><h2>Review & audit trail</h2><p>Recent local demo decisions, model version, and review state. Entries are linked by a tamper-evident hash chain.</p></div><div class="review-actions"><button class="btn" id="refresh-audit">Refresh</button><button class="btn" id="verify-audit">Verify chain</button></div></div>
+        <div id="integrity-result" class="notice-inline" aria-live="polite"></div><div id="audit-content" class="loading">Loading decision records…</div>
+      </section>
+
+      <section class="panel" id="panel-monitoring" role="tabpanel">
+        <div class="section-head"><div><h2>Input drift monitor</h2><p>Compares recent demo inputs to training-set distributions using the Population Stability Index.</p></div><button class="btn" id="refresh-monitor">Refresh</button></div>
+        <div id="monitoring-content" class="loading">Loading monitor…</div>
+        <p class="notice-inline">This detects shifts in submitted input distributions only. It cannot tell whether real-world model accuracy has changed because the prototype has no new outcome labels.</p>
+      </section>
+
+      <section class="panel" id="panel-method" role="tabpanel">
+        <div class="section-head"><div><h2>What the prototype does—and does not claim</h2><p>Design notes for a class demonstration.</p></div></div>
+        <div class="grid method-grid">
+          <article class="card method-card"><h3>Dataset and target</h3><p>Statlog German Credit has 1,000 historical records and 20 input fields. The model predicts the dataset’s good/bad credit-risk label. UCI’s cost matrix assigns five times more cost to calling a bad-risk case “good” than the reverse.</p><p><a href="https://archive.ics.uci.edu/dataset/144/statlog%2Bgerman%2Bcredit%2Bdata" target="_blank" rel="noreferrer">UCI dataset details and citation</a></p></article>
+          <article class="card method-card"><h3>Evaluation guardrails</h3><ul><li>Stratified 80/20 train/test split.</li><li>Repeated stratified five-fold CV for model and feature-set comparison.</li><li>Threshold selected from training-only out-of-fold predictions using the dataset’s error costs.</li><li>Test set used once for final estimates, not for feature selection.</li></ul></article>
+          <article class="card method-card"><h3>Explainability limit</h3><p>For each prediction, the app replaces one selected field at a time with a typical training value and measures the score change. This is a sensitivity check, not a causal explanation and not SHAP attribution.</p></article>
+          <article class="card method-card"><h3>Fairness limits</h3><p>The app reports group-level test rates for sex/marital-status, foreign-worker status, and age bands. Small subgroups have high uncertainty. These checks do not determine legal compliance.</p></article>
+          <article class="card method-card"><h3>Audit and review</h3><p>Each demo prediction records the input values, output, threshold, model version, and local sensitivity notes in SQLite. Review actions are appended as hash-linked events so the chain can be checked for edits.</p></article>
+          <article class="card method-card"><h3>Scope and privacy</h3><p>This is a local, educational prototype using an old benchmark dataset. Do not enter identifiable or real financial data. It has no authentication or production security controls and must not be used for lending decisions.</p></article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span>Educational prototype · Runs locally · No real lending decisions</span><span>UCI Statlog German Credit · Please cite UCI/Hofmann in submissions</span></footer>
+  </div>
+<script>
+(() => {
+  const state = { summary: null, schema: null, currentDecision: null };
+  const $ = (selector) => document.querySelector(selector);
+  const safe = (value) => String(value ?? '—');
+  const esc = (value) => safe(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  async function api(path, options={}) {
+    const response = await fetch(path, {headers:{'Content-Type':'application/json', ...(options.headers||{})}, ...options});
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail || data));
+    return data;
+  }
+  function showError(target, error) { target.innerHTML = `<div class="empty error">${esc(error.message || error)}</div>`; }
+  function switchPanel(name) {
+    document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.panel === name)));
+    document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === `panel-${name}`));
+    if (name === 'fairness') loadFairness();
+    if (name === 'audit') loadAudit();
+    if (name === 'monitoring') loadMonitoring();
+  }
+  function metricCard(label, value, foot, accent=false) {
+    return `<article class="card"><div class="metric-label">${esc(label)}</div><div class="metric-value ${accent?'metric-accent':''}">${esc(value)}</div><div class="metric-foot">${esc(foot)}</div></article>`;
+  }
+  async function loadSummary() {
+    try {
+      const s = await api('/api/summary'); state.summary = s;
+      $('#server-status').textContent = 'Model ready · local only';
+      $('#model-version').textContent = `Model ${s.model_version} · ${s.model_name}`;
+      const m=s.metrics, half=s.metrics_at_0_5;
+      $('#metric-cards').innerHTML = [
+        metricCard('Held-out accuracy', `${(m.accuracy*100).toFixed(1)}%`, `Majority baseline ${(m.majority_baseline_accuracy*100).toFixed(1)}%`, true),
+        metricCard('Bad-risk recall', `${(m.bad_risk_recall*100).toFixed(1)}%`, 'Share of bad-risk test cases identified'),
+        metricCard('Balanced accuracy', `${(m.balanced_accuracy*100).toFixed(1)}%`, 'Gives each class equal weight'),
+        metricCard('Expected error cost', m.expected_error_cost_per_case.toFixed(2), 'Cost units per test case; bad→good costs 5'),
+      ].join('');
+      const rows=s.cv_comparison.map((r,i)=>`<tr><td>${i===0?'<span class="tag good">Selected</span> ':''}${esc(r.name)}</td><td>${(r.cv_accuracy_mean*100).toFixed(1)}%</td><td>${(r.cv_accuracy_std*100).toFixed(1)} pp</td><td>${(r.cv_bad_risk_recall_mean*100).toFixed(1)}%</td><td>${r.cv_expected_error_cost_mean.toFixed(2)}</td></tr>`).join('');
+      $('#cv-table').innerHTML=`<div class="table-wrap"><table><thead><tr><th>Candidate</th><th>CV accuracy</th><th>CV variation</th><th>Bad recall</th><th>Error cost</th></tr></thead><tbody>${rows}</tbody></table></div><p class="notice-inline">At threshold 0.50, held-out accuracy was ${(half.accuracy*100).toFixed(1)}%; deployed threshold ${(m.threshold).toFixed(2)} was selected on training-only out-of-fold scores to respect the asymmetric cost.</p>`;
+    } catch(e) { $('#server-status').textContent='Model needs setup'; $('#metric-cards').innerHTML=`<div class="empty error">${esc(e.message)}<br><br>Run <code>python -m app.train_model</code>.</div>`; }
+  }
+  const groupFor = (name) => {
+    if (['purpose','duration','credit_amount','installment_rate'].includes(name)) return 'Loan details';
+    if (['checking_status','credit_history','savings','employment','existing_credits','other_installment_plans'].includes(name)) return 'Credit history and finances';
+    if (['personal_status_sex','age','foreign_worker','residence_since','dependents','job','housing','telephone'].includes(name)) return 'Applicant profile';
+    return 'Additional details';
+  };
+  async function loadSchema() {
+    try {
+      const data=await api('/api/schema'); state.schema=data; $('#field-count').textContent=data.fields.length;
+      const groups={};
+      data.fields.forEach(f => { const group=groupFor(f.name); (groups[group] ||= []).push(f); });
+      $('#field-groups').innerHTML=Object.entries(groups).map(([group,fields])=>`<fieldset class="field-group"><legend class="subtle" style="font-weight:750;padding:0 4px">${esc(group)}</legend><div class="fields">${fields.map(f=>{
+        const control=f.choices ? `<select name="${esc(f.name)}" required>${f.choices.map(c=>`<option value="${esc(c.value)}" ${String(c.value)===String(f.default)?'selected':''}>${esc(c.label)}</option>`).join('')}</select>` : `<input name="${esc(f.name)}" type="number" min="${f.min}" max="${f.max}" step="1" value="${f.default}" required>`;
+        const help=f.type==='number'?`Dataset range ${f.min}–${f.max}`:'Select a documented dataset category';
+        return `<div class="field"><label for="f-${esc(f.name)}">${esc(f.label)}</label>${control.replace(`name="${esc(f.name)}"`,`id="f-${esc(f.name)}" name="${esc(f.name)}"`)}<small>${help}</small></div>`;
+      }).join('')}</div></fieldset>`).join('');
+    } catch(e) { $('#field-groups').innerHTML=`<div class="empty error">${esc(e.message)}</div>`; }
+  }
+  function collectValues() {
+    const data=Object.fromEntries(new FormData($('#prediction-form')).entries());
+    for (const field of state.schema.fields) if (field.type==='number' || field.type==='ordered') data[field.name]=Number(data[field.name]);
+    return data;
+  }
+  $('#load-example').addEventListener('click', async()=>{
+    try { const e=await api('/api/examples'); Object.entries(e.typical_profile).forEach(([name,value])=>{const input=$(`[name="${name}"]`);if(input)input.value=value;}); }
+    catch(err){alert(err.message);}
+  });
+  $('#prediction-form').addEventListener('submit', async(event)=>{
+    event.preventDefault(); const button=$('#predict-button'); button.disabled=true; button.textContent='Scoring…';
+    try {
+      const data=await api('/api/predict',{method:'POST',body:JSON.stringify({values:collectValues()})}); state.currentDecision=data.decision_id;
+      $('#prediction-result').classList.add('visible'); $('#result-tag').textContent=data.predicted_bad_risk?'Higher-risk label':'Lower-risk label'; $('#result-tag').className=`tag ${data.predicted_bad_risk?'warn':'good'}`;
+      $('#result-title').textContent=data.risk_label; $('#result-subtitle').textContent=`${data.model_name} · version ${data.model_version} · threshold ${data.threshold}`;
+      $('#result-probability').textContent=`${(data.estimated_bad_risk_probability*100).toFixed(1)}%`;
+      $('#probability-meter').style.width=`${Math.min(100,Math.max(0,data.estimated_bad_risk_probability*100))}%`;
+      $('#explanation-list').innerHTML=data.explanations.length?data.explanations.map(x=>`<li><span><b>${esc(x.label)}</b> · ${esc(x.value)} vs typical ${esc(x.reference_value)}</span><span class="${x.direction==='raises'?'status high':'status low'}">${x.direction==='raises'?'+':''}${(x.probability_change*100).toFixed(1)} pp</span></li>`).join(''):'<li>No input differed from the typical reference values.</li>';
+      $('#explanation-note').textContent=data.explanation_method; $('#review-result').textContent=`Saved audit record ${data.decision_id.slice(0,8)}…`;
+      switchPanel('predict'); $('#prediction-result').scrollIntoView({behavior:'smooth',block:'start'});
+    } catch(e) { $('#prediction-result').classList.add('visible'); $('#result-title').textContent='Could not score this profile'; $('#result-subtitle').textContent=e.message; $('#explanation-list').innerHTML=''; }
+    finally{button.disabled=false;button.textContent='Estimate credit-risk label';}
+  });
+  document.querySelectorAll('[data-review]').forEach(button=>button.addEventListener('click',async()=>{
+    const note=$('#review-note').value.trim(); if(!state.currentDecision){$('#review-result').textContent='Run a prediction before recording a review.';return;} if(note.length<5){$('#review-result').textContent='Please add a review note of at least 5 characters.';return;}
+    button.disabled=true;try{await api(`/api/audit/${state.currentDecision}/review`,{method:'POST',body:JSON.stringify({action:button.dataset.review,note})});$('#review-result').textContent='Review action appended to the audit trail.';$('#review-note').value='';}catch(e){$('#review-result').textContent=e.message;}finally{button.disabled=false;}
+  }));
+  async function loadFairness(){const target=$('#fairness-content');target.innerHTML='<div class="loading">Loading…</div>';try{const data=await api('/api/fairness');target.innerHTML=Object.entries(data.metrics).map(([attribute,rows])=>`<article class="card" style="margin-bottom:14px"><h3 style="font-size:14px;margin:0 0 10px">${esc(attribute.replaceAll('_',' '))}</h3><div class="table-wrap"><table><thead><tr><th>Group</th><th>Cases</th><th>Predicted bad rate</th><th>Bad-risk recall</th><th>False-positive rate</th><th>Sample</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.group)}</td><td>${r.n}</td><td>${(r.predicted_bad_risk_rate*100).toFixed(1)}%</td><td>${r.bad_risk_recall===null?'—':(r.bad_risk_recall*100).toFixed(1)+'%'}</td><td>${r.false_positive_rate===null?'—':(r.false_positive_rate*100).toFixed(1)+'%'}</td><td>${r.small_sample_warning?'<span class="tag warn">Small n</span>':'<span class="tag">Review differences</span>'}</td></tr>`).join('')}</tbody></table></div></article>`).join('')+`<p class="subtle">${esc(data.note)}</p>`;}catch(e){showError(target,e);}}
+  async function loadAudit(){const target=$('#audit-content');target.innerHTML='<div class="loading">Loading…</div>';try{const data=await api('/api/audit?limit=100');if(!data.decisions.length){target.innerHTML='<div class="empty">No decisions yet. Make a prediction to start the audit trail.</div>';return;}target.innerHTML=`<div class="table-wrap"><table><thead><tr><th>Time (UTC)</th><th>Decision</th><th>Bad-risk estimate</th><th>Model version</th><th>Review status</th></tr></thead><tbody>${data.decisions.map(d=>`<tr><td>${esc(new Date(d.created_at).toLocaleString())}</td><td>${d.predicted_bad?'Bad-risk label':'Good-risk label'}</td><td>${(d.probability*100).toFixed(1)}%</td><td><code>${esc(d.model_version)}</code></td><td>${esc((d.review_status||'not reviewed').replaceAll('_',' '))}</td></tr>`).join('')}</tbody></table></div>`;}catch(e){showError(target,e);}}
+  async function verifyAudit(){const node=$('#integrity-result');node.textContent='Checking…';try{const result=await api('/api/audit/integrity');node.innerHTML=result.valid?`<span class="status low">Chain valid</span> · ${result.verified_events} events verified · head ${esc((result.head_hash||'').slice(0,16))}…`:`<span class="status high">Integrity check failed</span> at event ${result.failed_event_id}`;}catch(e){node.textContent=e.message;}}
+  async function loadMonitoring(){const target=$('#monitoring-content');target.innerHTML='<div class="loading">Loading…</div>';try{const data=await api('/api/monitoring?limit=100');if(data.status==='collecting'){target.innerHTML=`<div class="empty">${esc(data.note)}<br><strong>${data.records} / ${data.minimum_records}</strong> decisions recorded</div>`;return;}target.innerHTML=`<div class="card"><div class="metric-label">Recent input window</div><div class="metric-value">${data.records} records</div><p class="subtle">${esc(data.note)}</p><div class="table-wrap"><table><thead><tr><th>Feature</th><th>Type</th><th>PSI</th><th>Signal</th></tr></thead><tbody>${data.features.map(f=>`<tr><td>${esc(f.field.replaceAll('_',' '))}</td><td>${esc(f.type)}</td><td>${f.psi.toFixed(4)}</td><td><span class="status ${f.status}">${esc(f.status)}</span></td></tr>`).join('')}</tbody></table></div></div>`;}catch(e){showError(target,e);}}
+  document.querySelectorAll('.tab').forEach(button=>button.addEventListener('click',()=>switchPanel(button.dataset.panel)));
+  document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>switchPanel(button.dataset.go)));
+  $('#refresh-fairness').addEventListener('click',loadFairness);$('#refresh-audit').addEventListener('click',loadAudit);$('#refresh-monitor').addEventListener('click',loadMonitoring);$('#verify-audit').addEventListener('click',verifyAudit);
+  Promise.all([loadSummary(),loadSchema()]);
+})();
+</script>
+</body>
+</html>
